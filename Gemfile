@@ -32,6 +32,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'minitest-colorize'
+
+gem 'annotate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

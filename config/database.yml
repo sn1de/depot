@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: depot_development
   pool: 5
-  username: depot
+  username: bschneider
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: depot_test
   pool: 5
-  username: depot
+  username: bschneider
   password:
 
 production:
