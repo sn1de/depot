@@ -32,8 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
+group :test do
   gem 'minitest-colorize'
+end
+
+group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
