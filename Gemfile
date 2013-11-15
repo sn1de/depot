@@ -32,9 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'minitest-colorize'
-
-gem 'annotate'
+group :development do
+  gem 'minitest-colorize'
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
