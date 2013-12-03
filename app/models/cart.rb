@@ -11,11 +11,14 @@ class Cart < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
 
   def add_product(product_id)
+    prod = Product.find_by(id: product_id)
     current_item = line_items.find_by(product_id: product_id)
     if current_item
+      unit_price = current_item.price / current_item.quantity
       current_item.quantity += 1
+      current_item.price += unit_price
     else
-      current_item = line_items.build(product_id: product_id)
+      current_item = line_items.build(product_id: product_id, price: prod.price)
     end
     current_item
   end

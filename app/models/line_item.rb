@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  quantity   :integer          default(1)
+#  price      :decimal(8, 2)
 #
 
 class LineItem < ActiveRecord::Base
@@ -15,6 +16,6 @@ class LineItem < ActiveRecord::Base
   belongs_to :cart
 
   def total_price
-    product.price * quantity
+    price
   end
 end
