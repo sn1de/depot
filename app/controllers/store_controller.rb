@@ -5,9 +5,9 @@ class StoreController < ApplicationController
     else
       session[:counter] = session[:counter] + 1
     end
-
     @counter = session[:counter]
-    
+
+
     @products = Product.order(:title)
   end
 end

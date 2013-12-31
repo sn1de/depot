@@ -19,3 +19,5 @@
 
 # ignore this for now. attempt to get deployed to cloud foundry
 manifest.yml
+
+.idea
