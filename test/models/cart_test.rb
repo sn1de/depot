@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class CartTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   test "one product only, please" do
     c = Cart.new
