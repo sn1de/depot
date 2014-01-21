@@ -19,7 +19,7 @@ class CartTest < ActiveSupport::TestCase
   end
 
   test "multiple product quantities in cart" do
-    c = Cart.create!
+    c = Cart.new
     p = products(:ruby)
     c.add_product(p.id).save!
     c.add_product(p.id).save!
