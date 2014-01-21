@@ -14,9 +14,11 @@
 <div id="columns">
 	<div id="side">
 		<p class="time"><%= showtime %></p>
-        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-            <%= render @cart %>
-        <% end %>
+		<% if @cart %>
+	        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+	            <%= render @cart %>
+	        <% end %>
+	    <% end %>
 		<ul>
 			<li><a href="http://www....">Home</a></li>
 			<li><a href="http://www..../faq">Questions</a></li>
