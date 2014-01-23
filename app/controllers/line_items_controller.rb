@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:create, :decrement]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :decrement]
 
   # GET /line_items
   # GET /line_items.json
@@ -59,16 +59,16 @@ class LineItemsController < ApplicationController
 
   def decrement
     logger.debug "++ line item decrement ++"
-    line_item = LineItem.find(params[:id])
-    if line_item.quantity == 1
-      line_item.destroy
+    if @line_item.quantity == 1
+      @line_item.destroy
     else
-      line_item.quantity -= 1
-      line_item.save
+      @line_item.quantity -= 1
+      @line_item.save
     end
 
     respond_to do |format|
-      format.html { redirect_to cart_url(line_item.cart_id), notice: "Quantity decremented."}
+      format.html { redirect_to cart_url(@line_item.cart_id), notice: "Quantity decremented."}
+      format.js
     end
   end
 

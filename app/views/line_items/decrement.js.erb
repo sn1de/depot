@@ -1,0 +1,4 @@
+$('#cart').html("<%= escape_javascript render(@cart) %>")
+<% if @cart.line_items.empty? %>
+    $('#cart').css("display", "none")
+<% end %>
