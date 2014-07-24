@@ -7,6 +7,8 @@ Depot::Application.routes.draw do
     end
   end
 
+  put 'line_items/:id/relative_quantity/:current_qty/:target_qty', to: 'line_items#relative_quantity', as: :relative_quantity
+
   resources :carts
 
   get "store/index"

@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create, :decrement]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :decrement]
+  before_action :set_cart, only: [:create, :decrement, :relative_quantity]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :decrement, :relative_quantity]
 
   # GET /line_items
   # GET /line_items.json
@@ -57,8 +57,28 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def relative_quantity
+    current_qty = params[:current_qty].to_i
+    target_qty = params[:target_qty].to_i
+
+    if @line_item.quantity == current_qty
+      if target_qty <= 0
+        @line_item.destroy
+      else
+        @line_item.quantity = target_qty
+        @line_item.save
+      end
+    else
+      logger.debug "Quantity update failed, current quantity (#{current_qty}) did not match actual quantity (#{@line_item.quantity})"
+    end
+
+    respond_to do |format|
+      format.html { redirect_to cart_url(@line_item.cart_id), notice: "Quantity decremented."}
+      format.js { render 'decrement.js.erb' }
+    end
+  end
+
   def decrement
-    logger.debug "++ line item decrement ++"
     if @line_item.quantity == 1
       @line_item.destroy
     else
