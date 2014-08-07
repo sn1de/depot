@@ -1,0 +1,23 @@
+<h1>Who Bought <%= @product.title %></h1>
+<table border width=100%>
+	<% @product.orders.each do |order| %>
+		<tr>
+			<td colspan="2">Order Id</td>
+			<td><%= order.id %></td>
+		</tr>
+		<tr>
+			<td colspan=2>Address</td>
+			<td><%= order.address %></td>
+		</tr>
+			<tr>
+				<th>Product</th><th>Quantity</th><th>Total Price</th>
+			</tr>
+			<% order.line_items.each do |item| %>
+				<tr>
+					<td><%= item.product.title %></td>
+					<td><%= item.quantity %></td>
+					<td><%= number_to_currency(item.total_price) %></td>
+				</tr>
+			<% end %>
+	<% end %>
+</table>
