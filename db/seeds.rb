@@ -50,3 +50,9 @@ Product.create!(title: 'Rails Test Prescriptions',
       </p>},
   image_url: 'rtp.jpg',
   price: 34.95)
+
+# Seed Payment Types
+PayType.delete_all
+PayType.create!(pay_type: 'Check')
+PayType.create!(pay_type: 'Credit card')
+PayType.create!(pay_type: 'Purchase order')

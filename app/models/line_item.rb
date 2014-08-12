@@ -9,6 +9,7 @@
 #  updated_at :datetime
 #  quantity   :integer          default(1)
 #  price      :decimal(8, 2)
+#  order_id   :integer
 #
 
 class LineItem < ActiveRecord::Base

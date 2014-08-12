@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  address     :text
+#  email       :string(255)
+#  pay_type_id :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
