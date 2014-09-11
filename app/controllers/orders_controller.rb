@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
 #    logger.debug "Trying to associate payment type with id #{order_params['pay_type_id']}"
 #    @order.pay_type = PayType.find(order_params['pay_type_id'])
     @order.add_line_items_from_cart(@cart)
+    @order.ship_date = Date.today + 3
 
     respond_to do |format|
       if @order.save

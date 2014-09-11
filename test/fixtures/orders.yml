@@ -9,6 +9,7 @@
 #  pay_type_id :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  ship_date   :date
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
